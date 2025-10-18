@@ -1,4 +1,4 @@
-name: taskvector
+name: fda
 channels:
   - conda-forge
   - pytorch
