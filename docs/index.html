@@ -42,6 +42,30 @@
     </p>
   </section>
 
+  <section id="intuition" style="text-align: center; margin-top: 3em;">
+  <h2 style="border-bottom: none; margin-bottom: 0.5em;">
+    Intuition and Motivation
+  </h2>
+  <p style="max-width: 800px; margin: 0 auto; text-align: justify;">
+    The intuition behind <b><i>Functional Dual Anchors (FDAs)</i></b> arises from the observation that
+    model parameters alone cannot fully represent the functional behaviors learned across tasks. 
+    When models are finetuned on different datasets, their parameters diverge in complex,
+    entangled ways that make direct merging in the parameter space unstable and suboptimal.
+    Instead of focusing on the parameters themselves, FDAs aim to capture the <i>functional shifts</i> 
+    — that is, how each task changes the model’s input-output behavior — in a more interpretable
+    and geometry-aware manner.
+  </p>
+
+  <p style="max-width: 800px; margin: 1em auto 0 auto; text-align: justify;">
+    Concretely, each FDA acts as a synthetic input that anchors the model’s functional change
+    relative to the pretrained checkpoint. The gradients induced by these anchors align with 
+    task-specific update directions, providing a compact and disentangled representation of 
+    how each finetuned model adapts to its task. This design enables model merging to be guided 
+    by functional similarity rather than parameter coincidence, leading to smoother and more 
+    semantically meaningful integration trajectories.
+  </p>
+</section>
+
   <section id="overview">
     <h2>Overview</h2>
     <p>This work introduces <b>Functional Dual Anchors (FDAs)</b>, a framework for model merging that operates in the input–representation space instead of the parameter space. FDAs align induced gradients with task vectors to achieve efficient post-training integration of multiple finetuned models.</p>
