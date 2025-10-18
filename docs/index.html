@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MODEL MERGING WITH FUNCTIONAL DUAL ANCHORS</title>
+  <title>FDAs</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <header>
-    <h1>MODEL MERGING WITH FUNCTIONAL DUAL ANCHORS</h1>
+    <h1>Model Merging with Functioanl Dual Anchors</h1>
     <p class="authors">Kexuan Shi<sup>1</sup>, Yandong Wen<sup>2</sup>, Weiyang Liu<sup>1</sup></p>
     <p class="affiliations">
       <sup>1</sup>The Chinese University of Hong Kong &nbsp;&nbsp;
@@ -23,7 +23,7 @@
 
   <section id="abstract">
     <h2>Abstract</h2>
-    <p>\vspace{-1.5mm}
+    <p>
 Model merging is an efficient post-training strategy for integrating knowledge from multiple finetuned checkpoints of a shared foundation model. Existing methods operate in the parameter space, combining task vectors to mitigate conflicts, but remain constrained by parameter inconsistencies. We propose Functional Dual Anchors (FDAs), a framework that instead models the input–representation space. FDAs are synthetic inputs whose induced gradients align with task vectors, capturing task-specific functional shifts relative to the pretrained model. This perspective bridges joint multi-task training and post-hoc merging, offering both robustness and flexibility. We further introduce a principled initialization scheme and show that FDAs are complementary to parameter-centric model merging. Comprehensive experiments demonstrate the effectiveness of FDAs in model merging. ...</p>
   </section>
 
