@@ -23,7 +23,7 @@
 
   <img src="assets/illustration_only.png" alt="FDA Illustration" width="90%">
   <section id="abstract" style="text-align: center;">
-    <h2 style="border-bottom: none; margin-bottom: 0.5em;margin-top: 1em;">
+    <h2 style="border-bottom: none; margin-bottom: 0.5em;">
       FDA: A New Framework for Model Merging
     </h2>
     <p style="max-width: 800px; margin: 0 auto; text-align: justify;">
@@ -50,10 +50,9 @@
         <!-- 右侧小图 -->
         <img src="assets/loss_landscape_v3.png" 
              alt="FDA Loss Landscape"
-             style="float: right; width: 40%; margin-left: 1em; border-radius: 8px; vertical-align: top;">
+             style="float: right; width: 40%; margin-left: 1em; margin-top: 1em;border-radius: 8px; vertical-align: top;">
       
         <!-- 文字主体（强制与图像顶部对齐） -->
-        <div style="display: inline-block; width: 58%; vertical-align: top;">
           <p>
             To gain an intuitive understanding of FDAs, we compare their optimization trajectories with those of task arithmetic in Figure 2.
             We treat the obtained FDAs as finetuning data and optimize the model parameters accordingly.
@@ -64,19 +63,23 @@
             Unlike task vectors, which are sensitive to initialization and can drift under different starting points,
             FDAs exhibit robustness to such variations, facilitating more reliable model merging.
           </p>
-        </div>
       
       </div>
 
-      <p style="max-width: 800px; margin: 1em auto 0 auto; text-align: justify;">
-    Another motivation behind FDAs is that modeling the input
-space is generally easier than modeling the parameter space, as the input space tends to be more
-structured. The effectiveness of modeling the input space for knowledge transfer is has been exten-
-sively explored and empirically validated in the context of dataset distillation (Wang et al., 2018b;
-Cazenavette et al., 2022), iterative teaching (Liu et al., 2017a; Qiu et al., 2023), dataset condensa-
-tion (Zhao et al., 2021; Zhao & Bilen, 2023) and continual learning (Shin et al., 2017; Yu et al.,
-2023).
-  </p>
+      <p>
+        Another motivation behind FDAs is that modeling the input
+        space is generally easier than modeling the parameter space, as the input space tends to be more
+        structured. The effectiveness of modeling the input space for knowledge transfer has been extensively
+        explored and empirically validated in the context of dataset distillation
+        (<sup><a href="#ref-wang2018b">Wang et al., 2018b</a></sup>;
+        <sup><a href="#ref-cazenavette2022">Cazenavette et al., 2022</a></sup>),
+        iterative teaching (<sup><a href="#ref-liu2017a">Liu et al., 2017a</a></sup>;
+        <sup><a href="#ref-qiu2023">Qiu et al., 2023</a></sup>),
+        dataset condensation (<sup><a href="#ref-zhao2021">Zhao et al., 2021</a></sup>;
+        <sup><a href="#ref-zhao2023">Zhao & Bilen, 2023</a></sup>)
+        and continual learning (<sup><a href="#ref-shin2017">Shin et al., 2017</a></sup>;
+        <sup><a href="#ref-yu2023">Yu et al., 2023</a></sup>).
+      </p>
 </section>
 
   <section id="performance" style="text-align: center; margin-top: 3em;">
@@ -175,6 +178,20 @@ tion (Zhao et al., 2021; Zhao & Bilen, 2023) and continual learning (Shin et al.
 }
     </pre>
   </section>
+
+    <section id="references" style="text-align:left; max-width:800px; margin: 2em auto;">
+  <h3>References</h3>
+  <ol>
+    <li id="ref-wang2018b">Wang, T., Zhu, J. et al. (2018b). Dataset Distillation. <i>ICLR</i>.</li>
+    <li id="ref-cazenavette2022">Cazenavette, G., et al. (2022). Dataset Condensation with Gradient Matching. <i>CVPR</i>.</li>
+    <li id="ref-liu2017a">Liu, Y., et al. (2017a). Iterative Machine Teaching. <i>NeurIPS</i>.</li>
+    <li id="ref-qiu2023">Qiu, X., et al. (2023). Teaching via Iterative Distillation. <i>ICML</i>.</li>
+    <li id="ref-zhao2021">Zhao, B., et al. (2021). Dataset Condensation with Gradient Matching. <i>ICLR</i>.</li>
+    <li id="ref-zhao2023">Zhao, B., & Bilen, H. (2023). Synthesizing Informative Data for Efficient Learning. <i>CVPR</i>.</li>
+    <li id="ref-shin2017">Shin, H., et al. (2017). Continual Learning with Deep Generative Replay. <i>NeurIPS</i>.</li>
+    <li id="ref-yu2023">Yu, C., et al. (2023). Continual Learning with Functional Regularization. <i>ICML</i>.</li>
+  </ol>
+</section>
 
   <footer>
     <p>This website is adapted from Nerfies, MathVista and SGP-Bench, licensed under a Creative Commons Attribution-ShareAlike 4.0 International License.</p>
