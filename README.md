@@ -25,10 +25,36 @@ For NLG tasks, the pretrained model is downloaded from https://huggingface.co/me
 The FDAs for the above models can be found in: .
 
 ### Environment
-For Vision and NLP tasks, we use a 
+For Vision and NLP tasks, we use the same environment. It can be installed by:
+```bash
+cd FDA/Vision #cd FDA/NLU
+# Create conda environment
+conda env create -f environment.yaml
+# Activate environment
+conda activate fda
+```
+For NLU tasks, please use: ```NLG/environment.yaml```
 
-## Construct FDAs
+### Adapt by FDAs
+Please follow the path comments in the code file ```adapt.py```, replace them with the paths to your local checkpoints and FDAs, and then run the following commands to reproduce the FDA adaptation results:
+```bash
+cd FDA/Vision #cd FDA/NLU cd FDA/NLG
+sh adapt.sh
+```
+
+For models in NLG tasks, please split the model first:
+```bash
+cd FDA/NLG
+python split_model.py
+```
+
+### Construct FDAs
+If you want to construct FDAs for your finetuned checkpoint, please follow the path comments in the code file ```construct_fda.py```, replace them with the paths to your finetuned checkpoints. Then,
+```bash
+sh construct.sh
+```
 
 ## Acknowledgement
+This repository uses codes and resources from Task Arithmetic, DARE, TSVM, WUDI, Prodistill.
 
 ## Citation
