@@ -5,7 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>FDAs</title>
   <link rel="stylesheet" href="style.css">
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <script>
+window.MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\\(', '\\)']],
+    displayMath: [['$$', '$$'], ['\\[', '\\]']],
+    processEscapes: true
+  },
+  options: { skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'] }
+};
+</script>
+<script id="MathJax-script" async 
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
 </head>
 <body>
   <header>
@@ -123,16 +135,32 @@ In the second stage, these FDAs are used to adapt the model, i.e., integrate kno
   <!-- 子小节1 -->
   <div style="max-width: 800px; margin: 2em auto 0 auto; text-align: justify;">
     <h3 style="text-align: left; margin-bottom: 0.5em;">1. Construction</h3>
-    <p>
-    Given the pretrained model $\varphi(\theta_0)$ and the corresponding finetuned checkpoint $\varphi(\theta_i)$, we construct the FDAs for $\varphi(\theta_i)$
-    via solving the following optimization problem: 
-    $$
-      \min_{\vx_{i1},\dots,\vx_{in}} \mathrm{cos\_dist}\bigg(\nabla_{\theta}\sum_{j=1}^n 
-      \mathrm{Dist}\!\big(\varphi(\boldsymbol{\theta}, \vx_{ij}), \varphi(\boldsymbol{\theta}_i, \vx_{ij})\big)\bigg{|}_{\boldsymbol{\theta}=\boldsymbol{\theta}_0}, \boldsymbol{\tau}_i
-\bigg),
-    $$
-      where $\mathrm{cos\_dist}(\mA,\mB)=1-\frac{\mathrm{vec}(\mA)\mathrm{vec}(\mB)}{\|\mA\|_F\|\mB\|_F}$, $\mathrm{vec}$ denotes the operation that vectorizes a matrix into a vector in a row-major order, and $\mathrm{Dist}(\cdot)$ denotes a differentiable distance function measuring the representation discrepancy between $\varphi(\boldsymbol{\theta}_0)$ and $\varphi(\boldsymbol{\theta}_i)$.
-    </p>
+p>
+  Given the pretrained model $\varphi(\theta_0)$ and the corresponding finetuned checkpoint 
+  $\varphi(\theta_i)$, we construct the FDAs for $\varphi(\theta_i)$
+  via solving the following optimization problem:
+</p>
+
+$$
+\min_{\mathbf{x}_{i1},\dots,\mathbf{x}_{in}} 
+\mathrm{cos\_dist}\!\Bigg(
+\nabla_{\boldsymbol{\theta}}\!\sum_{j=1}^n 
+\mathrm{Dist}\!\big(\varphi(\boldsymbol{\theta}, \mathbf{x}_{ij}), 
+\varphi(\boldsymbol{\theta}_i, \mathbf{x}_{ij})\big)
+\Big|_{\boldsymbol{\theta}=\boldsymbol{\theta}_0}, 
+\boldsymbol{\tau}_i
+\Bigg)
+$$
+
+<p>
+where $\mathrm{cos\_dist}(\mathbf{A},\mathbf{B}) = 1 - 
+\frac{\mathrm{vec}(\mathbf{A})^\top \mathrm{vec}(\mathbf{B})}
+{\|\mathbf{A}\|_F \|\mathbf{B}\|_F}$, 
+$\mathrm{vec}$ denotes the operation that vectorizes a matrix into a vector 
+in row-major order, and $\mathrm{Dist}(\cdot)$ denotes a differentiable distance 
+function measuring the representation discrepancy between 
+$\varphi(\boldsymbol{\theta}_0)$ and $\varphi(\boldsymbol{\theta}_i)$.
+</p>
   </div>
 
   <!-- 子小节2 -->
