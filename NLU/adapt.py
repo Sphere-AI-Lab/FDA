@@ -18,7 +18,6 @@ from datasets import logging as datasets_logging
 datasets_logging.set_verbosity_error()
 os.environ["TOKENIZERS_PARALLELISM"] = "false"
 
-# 禁用高效注意力
 torch.backends.cuda.enable_flash_sdp(False)
 torch.backends.cuda.enable_math_sdp(True)
 torch.backends.cuda.enable_mem_efficient_sdp(False)
