@@ -84,10 +84,9 @@
 
   <section id="performance" style="text-align: center; margin-top: 3em;">
   <h2 style="border-bottom: none; margin-bottom: 0.5em;">
-      Performance of FDAs
+    FDAs Provide More Flexible and Robust Merging Direction
   </h2>
 
-  <!-- 图片展示区（可换成你的性能图表） -->
   <div style="text-align: center; margin-bottom: 1em;">
     <img src="./docs/assets/fda_performance.png" alt="FDA Performance" width="80%">
     <p style="font-size: small; color: gray;">Figure 2: Performance comparison of FDAs with other model merging methods.</p>
@@ -95,47 +94,49 @@
 
   <!-- 正文 -->
   <p style="max-width: 800px; margin: 0 auto; text-align: justify;">
-    To evaluate the effectiveness of <b><i>Functional Dual Anchors (FDAs)</i></b>, we conduct extensive experiments across
-    multiple modalities, including vision, natural language understanding (NLP), and natural language generation (NLG).
-    FDAs consistently outperform traditional parameter-space merging methods such as Task Arithmetic, DARE, and WUDI
-    across a wide range of datasets and architectures.
+ To validate the effectiveness of the merging direction provided by FDAs, we use FDAs to adapt the pretrained model and compare the multi-task performance 
+with its dual framework (i.e., task vectors). To show the robustness, we initialize the pretrained model by the merged parameters, which are derived from data-free
+task-vector-based methods. We consider three data-free methods, TA (task arithmetic), TSVM, WUDI. The former one is the classical method, while the latter two are the 
+current state-of-the-art methods. We present some results. More results can be found in our paper.
   </p>
 
   <p style="max-width: 800px; margin: 1em auto 0 auto; text-align: justify;">
     In vision tasks, FDAs achieve comparable or superior accuracy to joint multi-task training while maintaining
     full modularity and no access to original data. For NLP tasks on the GLUE benchmark, FDAs demonstrate smoother
-    merging trajectories and less performance degradation under conflicting task updates. For large-scale language
-    models, FDAs enable effective functional adaptation between experts in domains such as mathematics and code.
-    These results highlight the robustness and generality of FDAs as a unifying framework for functional model merging.
+    merging trajectories and less performance degradation under conflicting task updates. These results highlight the robustness and generality of FDAs as a unifying framework for functional model merging.
   </p>
 </section>
 
-  <section id="performance" style="text-align: center; margin-top: 3em;">
+<section id="algorithm" style="text-align: center; margin-top: 3em;">
   <h2 style="border-bottom: none; margin-bottom: 0.5em;">
-    The practical Aligorithms for FDAs
+    A Practical Algorithm for FDAs
   </h2>
 
-  <!-- 图片展示区（可换成你的性能图表） -->
-  <div style="text-align: center; margin-bottom: 1em;">
-    <img src="./docs/assets/fda_performance.png" alt="FDA Performance" width="80%">
-    <p style="font-size: small; color: gray;">Figure 2: Performance comparison of FDAs with other model merging methods.</p>
+  <!-- 简要介绍 -->
+  <p style="max-width: 800px; margin: 0 auto; text-align: justify;">
+    The practical Algorithms for FDAs are in two aspects: construction of FDAs and adaptation by FDAs. The former process is to 
+    cunstruct the FDAs for each downstream checkpoints, i.e., project the task-specific knowledge into the input-representation space. 
+    The latter process is to use the obtained FDAs to adapt the model to obtain the multi-task knowledge.
+  </p>
+
+  <!-- 子小节1 -->
+  <div style="max-width: 800px; margin: 2em auto 0 auto; text-align: justify;">
+    <h3 style="text-align: left; margin-bottom: 0.5em;">1. Vision Experiments</h3>
+    <p>
+      In vision tasks, FDAs achieve comparable or superior accuracy to joint multi-task training while maintaining
+      full modularity and no access to original data. These results suggest that FDAs effectively capture functional
+      representations across tasks and architectures.
+    </p>
   </div>
 
-  <!-- 正文 -->
-  <p style="max-width: 800px; margin: 0 auto; text-align: justify;">
-    To evaluate the effectiveness of <b><i>Functional Dual Anchors (FDAs)</i></b>, we conduct extensive experiments across
-    multiple modalities, including vision, natural language understanding (NLP), and natural language generation (NLG).
-    FDAs consistently outperform traditional parameter-space merging methods such as Task Arithmetic, DARE, and WUDI
-    across a wide range of datasets and architectures.
-  </p>
-
-  <p style="max-width: 800px; margin: 1em auto 0 auto; text-align: justify;">
-    In vision tasks, FDAs achieve comparable or superior accuracy to joint multi-task training while maintaining
-    full modularity and no access to original data. For NLP tasks on the GLUE benchmark, FDAs demonstrate smoother
-    merging trajectories and less performance degradation under conflicting task updates. For large-scale language
-    models, FDAs enable effective functional adaptation between experts in domains such as mathematics and code.
-    These results highlight the robustness and generality of FDAs as a unifying framework for functional model merging.
-  </p>
+  <!-- 子小节2 -->
+  <div style="max-width: 800px; margin: 2em auto 0 auto; text-align: justify;">
+    <h3 style="text-align: left; margin-bottom: 0.5em;">2. NLP and GLUE Benchmark</h3>
+    <p>
+      For NLP tasks on the GLUE benchmark, FDAs demonstrate smoother merging trajectories and less performance degradation
+      under conflicting task updates, outperforming traditional model merging baselines such as Task Arithmetic and DARE.
+    </p>
+  </div>
 </section>
 
 
