@@ -21,7 +21,7 @@
     </div>
   </header>
 
-  <img src="./assets/framework_trajectory.png" alt="FDA Illustration" width="90%">
+  <img src="./assets/illustration_only.png" alt="FDA Illustration" width="90%">
   <section id="abstract" style="text-align: center;">
     <h2 style="border-bottom: none; margin-bottom: 0.5em;">
       FDA: A New Framework for Model Merging
@@ -42,23 +42,29 @@
 
   <section id="intuition" style="text-align: center; margin-top: 3em;">
   <h2 style="border-bottom: none; margin-bottom: 0.5em;">
-    Intuitive Undertstanding and Motivation of FDA
+    Intuitive Understanding and Motivation of FDA
   </h2>
-  <p style="max-width: 800px; margin: 0 auto; text-align: justify;">
-    To gain an intuitive understanding of FDAs, we compare their optimization trajectories with those of task arithmetic in Figure 2. We treat the obtained 
-    FDAs as finetuning data and optimize the model parameters accordingly. As shown in the right figure, optimizing with FDAs moves the model closer to the local
-    minima of the loss landscape (computed over eight downstream
-    datasets). While task vectors provide useful guidance from the
-    pretrained model, they quickly drift away from the loss basin,
-    whereas FDAs consistently guide optimization toward more fa-
-    vorable regions. Moreover, by capturing functional shifts in the
-    input space, FDAs offer greater robustness for model merging.
-    Unlike task vectors, which are sensitive to initialization and can
-    drift under different starting points, FDAs exhibit robustness to
-    such variations, facilitating more reliable model merging.
-      </p>
 
-  <p style="max-width: 800px; margin: 1em auto 0 auto; text-align: justify;">
+  <div style="max-width: 900px; margin: 0 auto; text-align: justify; overflow: hidden;">
+    <!-- 右侧小图 -->
+    <img src="docs/assets/loss_landscape_v3.png" 
+         alt="FDA Loss Landscape"
+         style="float: right; width: 40%; margin-left: 1em; margin-bottom: 0.5em; border-radius: 8px;">
+
+    <!-- 文字主体 -->
+    <p>
+      To gain an intuitive understanding of FDAs, we compare their optimization trajectories with those of task arithmetic in Figure 2.
+      We treat the obtained FDAs as finetuning data and optimize the model parameters accordingly.
+      As shown in the right figure, optimizing with FDAs moves the model closer to the local minima of the loss landscape (computed over eight downstream datasets).
+      While task vectors provide useful guidance from the pretrained model, they quickly drift away from the loss basin,
+      whereas FDAs consistently guide optimization toward more favorable regions.
+      Moreover, by capturing functional shifts in the input space, FDAs offer greater robustness for model merging.
+      Unlike task vectors, which are sensitive to initialization and can drift under different starting points,
+      FDAs exhibit robustness to such variations, facilitating more reliable model merging.
+    </p>
+  </div>
+
+      <p style="max-width: 800px; margin: 1em auto 0 auto; text-align: justify;">
     Another motivation behind FDAs is that modeling the input
 space is generally easier than modeling the parameter space, as the input space tends to be more
 structured. The effectiveness of modeling the input space for knowledge transfer is has been exten-
