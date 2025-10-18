@@ -4,7 +4,7 @@ export OMP_NUM_THREADS=2
 
 export PYTHONPATH="$PYTHONPATH:$PWD"
 
-CUDA_VISIBLE_DEVICES=5 python adapt_fda.py \
+CUDA_VISIBLE_DEVICES=5 python adapt.py \
       --model ViT-B-32 \
       --name init_by_gauss_random \
       --init_params pretrained \
@@ -20,7 +20,7 @@ CUDA_VISIBLE_DEVICES=5 python adapt_fda.py \
       --adapt_epochs 100 \
       --adapt_lr 1e-5
 
-# CUDA_VISIBLE_DEVICES=1 python adapt_fda.py \
+# CUDA_VISIBLE_DEVICES=1 python adapt.py \
 #       --model ViT-B-32 \
 #       --name init_by_gauss_random \
 #       --init_params ta \
