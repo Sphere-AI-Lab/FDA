@@ -8,7 +8,7 @@
 </head>
 <body>
   <header>
-    <h1>Model Merging with Functioanl Dual Anchors</h1>
+    <h1>Model Merging with Functioanl Dual Anchor</h1>
     <p class="authors">Kexuan Shi<sup>1</sup>, Yandong Wen<sup>2</sup>, Weiyang Liu<sup>1</sup></p>
     <p class="affiliations">
       <sup>1</sup>The Chinese University of Hong Kong &nbsp;&nbsp;
@@ -22,9 +22,14 @@
   </header>
 
   <section id="abstract">
-    <h2>Abstract</h2>
-    <p>
-Model merging is an efficient post-training strategy for integrating knowledge from multiple finetuned checkpoints of a shared foundation model. Existing methods operate in the parameter space, combining task vectors to mitigate conflicts, but remain constrained by parameter inconsistencies. We propose Functional Dual Anchors (FDAs), a framework that instead models the input–representation space. FDAs are synthetic inputs whose induced gradients align with task vectors, capturing task-specific functional shifts relative to the pretrained model. This perspective bridges joint multi-task training and post-hoc merging, offering both robustness and flexibility. We further introduce a principled initialization scheme and show that FDAs are complementary to parameter-centric model merging. Comprehensive experiments demonstrate the effectiveness of FDAs in model merging. ...</p>
+    <h2>FDA: A New Framework for Model Merging</h2>
+    <p> Model Merging has been an intriguing post training strategy for integrating knowledge from existing checkpoints of a shared foundation model. Existing methods focuses on the
+      operation in the parameter space (i.e., task vectors), thereby suffering from the complexity of the parameter space. To explore more knowledge uitilizations, we propose <b><i>Functional
+      Dual Anchors (FDAs) </i></b>, a framework (Figure 1(a) that instead models the knowledge in the input-representation space. Specifically, FDAs are synthetic inputs whose induced gradients align with 
+      task vectors, capturing task-specific functional shifts relative to the pretrained model. Then, we use the FDAs to adapt the pretrained model. Comparing with the task vectors, FDAs can 
+      provide more robust and flexible trajectory for model merging, as shown in the Figure 1(b). FDAs provide an alternative perspective on model merging by extending input-space modeling to 
+      this setting and bridges joint multi-task training and post-hoc merging.
+    </p>
   </section>
 
   <section id="overview">
