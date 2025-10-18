@@ -34,9 +34,7 @@
       <b><i>Functional Dual Anchors (FDAs)</i></b>, a framework (Figure 1(a)) that instead models 
       the knowledge in the input-representation space. Specifically, FDAs are synthetic inputs 
       whose induced gradients align with task vectors, capturing task-specific functional shifts 
-      relative to the pretrained model. Then, we use the FDAs to adapt the pretrained model. 
-      Comparing with the task vectors, FDAs can provide more robust and flexible trajectories 
-      for model merging, as shown in Figure 1(b). FDAs provide an alternative perspective on 
+      relative to the pretrained model. Then, we use the FDAs to adapt the pretrained model. FDAs provide an alternative perspective on 
       model merging by extending input-space modeling to this setting and bridging joint 
       multi-task training and post-hoc merging.
     </p>
@@ -44,25 +42,32 @@
 
   <section id="intuition" style="text-align: center; margin-top: 3em;">
   <h2 style="border-bottom: none; margin-bottom: 0.5em;">
-    Intuition and Motivation
+    Intuitive Undertstanding and Motivation of FDA
   </h2>
   <p style="max-width: 800px; margin: 0 auto; text-align: justify;">
-    The intuition behind <b><i>Functional Dual Anchors (FDAs)</i></b> arises from the observation that
-    model parameters alone cannot fully represent the functional behaviors learned across tasks. 
-    When models are finetuned on different datasets, their parameters diverge in complex,
-    entangled ways that make direct merging in the parameter space unstable and suboptimal.
-    Instead of focusing on the parameters themselves, FDAs aim to capture the <i>functional shifts</i> 
-    — that is, how each task changes the model’s input-output behavior — in a more interpretable
-    and geometry-aware manner.
+    To gain an intuitive understanding of FDAs, we compare their
+optimization trajectories with those of task arithmetic in Fig-
+ure 2. We treat the obtained FDAs as finetuning data and op-
+timize the model parameters accordingly. As shown in the right figure, optimizing with FDAs moves the model closer to the local
+minima of the loss landscape (computed over eight downstream
+datasets). While task vectors provide useful guidance from the
+pretrained model, they quickly drift away from the loss basin,
+whereas FDAs consistently guide optimization toward more fa-
+vorable regions. Moreover, by capturing functional shifts in the
+input space, FDAs offer greater robustness for model merging.
+Unlike task vectors, which are sensitive to initialization and can
+drift under different starting points, FDAs exhibit robustness to
+such variations, facilitating more reliable model merging.
   </p>
 
   <p style="max-width: 800px; margin: 1em auto 0 auto; text-align: justify;">
-    Concretely, each FDA acts as a synthetic input that anchors the model’s functional change
-    relative to the pretrained checkpoint. The gradients induced by these anchors align with 
-    task-specific update directions, providing a compact and disentangled representation of 
-    how each finetuned model adapts to its task. This design enables model merging to be guided 
-    by functional similarity rather than parameter coincidence, leading to smoother and more 
-    semantically meaningful integration trajectories.
+    Another motivation behind FDAs is that modeling the input
+space is generally easier than modeling the parameter space, as the input space tends to be more
+structured. The effectiveness of modeling the input space for knowledge transfer is has been exten-
+sively explored and empirically validated in the context of dataset distillation (Wang et al., 2018b;
+Cazenavette et al., 2022), iterative teaching (Liu et al., 2017a; Qiu et al., 2023), dataset condensa-
+tion (Zhao et al., 2021; Zhao & Bilen, 2023) and continual learning (Shin et al., 2017; Yu et al.,
+2023).
   </p>
 </section>
 
