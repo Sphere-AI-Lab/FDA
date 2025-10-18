@@ -8,7 +8,7 @@ export PYTHONPATH="$PYTHONPATH:$PWD"
 
 # init_by_gauss_random_pos
 # init_by_params_pos
-CUDA_VISIBLE_DEVICES=0 python adapt_fda.py \
+CUDA_VISIBLE_DEVICES=0 python adapt.py \
       --model roberta-base \
       --name init_by_gauss_random_pos \
       --init_params pretrained \
@@ -28,7 +28,7 @@ CUDA_VISIBLE_DEVICES=0 python adapt_fda.py \
 # init_by_gauss_random_pos
 # init_by_params_pos
 # tsv, wudi,ta
-# CUDA_VISIBLE_DEVICES=4 python adapt_fda.py \
+# CUDA_VISIBLE_DEVICES=4 python adapt.py \
 #       --model roberta-base \
 #       --name init_by_weights_pos \
 #       --init_params tsv \
@@ -49,7 +49,7 @@ CUDA_VISIBLE_DEVICES=0 python adapt_fda.py \
 
 # init_by_gauss_random_pos
 # init_by_params_pos
-# CUDA_VISIBLE_DEVICES=1 python adapt_fda.py \
+# CUDA_VISIBLE_DEVICES=1 python adapt.py \
 #       --model roberta-large \
 #       --name init_by_gauss_random_pos \
 #       --init_params pretrained \
@@ -69,7 +69,7 @@ CUDA_VISIBLE_DEVICES=0 python adapt_fda.py \
 # init_by_gauss_random_pos
 # init_by_params_pos
 # tsv, wudi,ta
-# CUDA_VISIBLE_DEVICES=0 python adapt_fda.py \
+# CUDA_VISIBLE_DEVICES=0 python adapt.py \
 #       --model roberta-large \
 #       --name init_by_gauss_random_pos \
 #       --init_params ta \
