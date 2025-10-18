@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>FDAs</title>
   <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 <body>
   <header>
@@ -114,24 +115,29 @@ current state-of-the-art methods. We present some results. More results can be f
 
   <!-- 简要介绍 -->
   <p style="max-width: 800px; margin: 0 auto; text-align: justify;">
-    The practical Algorithms for FDAs are in two aspects: construction of FDAs and adaptation by FDAs. The former process is to 
-    cunstruct the FDAs for each downstream checkpoints, i.e., project the task-specific knowledge into the input-representation space. 
-    The latter process is to use the obtained FDAs to adapt the model to obtain the multi-task knowledge.
+The practical algorithms for FDAs involve two main stages: constructing FDAs and adapting with FDAs.
+In the first stage, FDAs are built for each downstream checkpoint. This stage can be deemed as projecting task-specific knowledge into the input–representation space.
+In the second stage, these FDAs are used to adapt the model, i.e., integrate knowledge across multiple tasks.
   </p>
 
   <!-- 子小节1 -->
   <div style="max-width: 800px; margin: 2em auto 0 auto; text-align: justify;">
-    <h3 style="text-align: left; margin-bottom: 0.5em;">1. Vision Experiments</h3>
+    <h3 style="text-align: left; margin-bottom: 0.5em;">1. Construction</h3>
     <p>
-      In vision tasks, FDAs achieve comparable or superior accuracy to joint multi-task training while maintaining
-      full modularity and no access to original data. These results suggest that FDAs effectively capture functional
-      representations across tasks and architectures.
+    Given the pretrained model $\varphi(\theta_0)$ and the corresponding finetuned checkpoint $\varphi(\theta_i)$, we construct the FDAs for $\varphi(\theta_i)$
+    via solving the following optimization problem: 
+    $$
+      \min_{\vx_{i1},\dots,\vx_{in}} \mathrm{cos\_dist}\bigg(\nabla_{\theta}\sum_{j=1}^n 
+      \mathrm{Dist}\!\big(\varphi(\boldsymbol{\theta}, \vx_{ij}), \varphi(\boldsymbol{\theta}_i, \vx_{ij})\big)\bigg{|}_{\boldsymbol{\theta}=\boldsymbol{\theta}_0}, \boldsymbol{\tau}_i
+\bigg),
+    $$
+      where $\mathrm{cos\_dist}(\mA,\mB)=1-\frac{\mathrm{vec}(\mA)\mathrm{vec}(\mB)}{\|\mA\|_F\|\mB\|_F}$, $\mathrm{vec}$ denotes the operation that vectorizes a matrix into a vector in a row-major order, and $\mathrm{Dist}(\cdot)$ denotes a differentiable distance function measuring the representation discrepancy between $\varphi(\boldsymbol{\theta}_0)$ and $\varphi(\boldsymbol{\theta}_i)$.
     </p>
   </div>
 
   <!-- 子小节2 -->
   <div style="max-width: 800px; margin: 2em auto 0 auto; text-align: justify;">
-    <h3 style="text-align: left; margin-bottom: 0.5em;">2. NLP and GLUE Benchmark</h3>
+    <h3 style="text-align: left; margin-bottom: 0.5em;">2. Adaptation</h3>
     <p>
       For NLP tasks on the GLUE benchmark, FDAs demonstrate smoother merging trajectories and less performance degradation
       under conflicting task updates, outperforming traditional model merging baselines such as Task Arithmetic and DARE.
