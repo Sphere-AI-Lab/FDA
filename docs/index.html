@@ -225,12 +225,11 @@ $\varphi(\boldsymbol{\theta}_0)$ and $\varphi(\boldsymbol{\theta}_i)$.
   </div>
 </p>
     <p>
-      Based on this principle, we derive two practical initialization schemes: linear weight sampling $\boldsymbol{x}_{ij}=(\boldsymbol{W}_i)_{l_j,:}\$ and scaled Gaussian sampling $\vx_{ij} = \sigma \cdot \tilde{\boldsymbol{x}}_{ij},
+      Based on this principle, we derive two practical initialization schemes: linear weight sampling $\boldsymbol{x}_{ij}=(\boldsymbol{W}_i)_{l_j,:}$ and scaled Gaussian sampling $\vx_{ij} = \sigma \cdot \tilde{\boldsymbol{x}}_{ij},
 \tilde{\boldsymbol{x}}_{ij} \sim \mathcal{N}(\mathbf{0}, \boldsymbol{I}_d)$, where $\boldsymbol{W}$ denotes the weight matrix. 
     </p>
   </div>
 
-  <!-- 子小节2 -->
   <div style="max-width: 800px; margin: 2em auto 0 auto; text-align: justify;">
     <h3 style="text-align: left; margin-bottom: 0.5em;">2. Adaptation</h3>
     <p>
@@ -263,16 +262,14 @@ $$
   <h2 style="border-bottom: none; margin-bottom: 0.5em;">
     Knowledge encoded in the FDAs
   </h2>
-
-  <!-- 正文 -->
   <p style="max-width: 800px; margin: 0 auto; text-align: justify;">
 Since FDAs projects the task-specific knowledge into the input-representation space, we investigate the knowledge encoded by FDAs. We made three 
 interesting observations.
   </p>
 <div style="max-width: 800px; margin: 1.5em auto; text-align: justify;">
-  <p><b>Observation 1 – Representation Alignment:</b> FDAs align the model’s intermediate representations across tasks, reducing domain discrepancy.</p>
-  <p><b>Observation 2 – Functional Compactness:</b> The learned FDAs capture task semantics efficiently, using only a few synthetic samples per task.</p>
-  <p><b>Observation 3 – Cross-task Generalization:</b> FDAs facilitate smoother transitions when merging diverse downstream models.</p>
+  <p><b>Observation 1 – FDAs evolve into a long-tailed spectrum structure during optimization:</b> FDAs align the model’s intermediate representations across tasks, reducing domain discrepancy.</p>
+  <p><b>Observation 2 – The high-energy subspaces of FDAs gradually aligns with that of real data:</b> The learned FDAs capture task semantics efficiently, using only a few synthetic samples per task.</p>
+  <p><b>Observation 3 – FDAs-induced adaptation increasingly aligns with that induced by real data:</b> FDAs facilitate smoother transitions when merging diverse downstream models.</p>
 </div>
 
 </section>
