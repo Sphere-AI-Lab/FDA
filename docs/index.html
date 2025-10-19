@@ -225,7 +225,7 @@ $\varphi(\boldsymbol{\theta}_0)$ and $\varphi(\boldsymbol{\theta}_i)$.
   </div>
 </p>
     <p>
-      Based on this principle, we derive two practical initialization schemes: linear weight sampling $\boldsymbol{x}_{ij}=(\boldsymbol{W}_i)_{l_j,:}$ and scaled Gaussian sampling $\vx_{ij} = \sigma \cdot \tilde{\boldsymbol{x}}_{ij},
+      Based on this principle, we derive two practical initialization schemes: linear weight sampling $\boldsymbol{x}_{ij}=(\boldsymbol{W}_i)_{l_j,:}$ and scaled Gaussian sampling $\boldsymbol{x}_{ij} = \sigma \cdot \tilde{\boldsymbol{x}}_{ij},
 \tilde{\boldsymbol{x}}_{ij} \sim \mathcal{N}(\mathbf{0}, \boldsymbol{I}_d)$, where $\boldsymbol{W}$ denotes the weight matrix. 
     </p>
   </div>
@@ -267,7 +267,8 @@ Since FDAs projects the task-specific knowledge into the input-representation sp
 interesting observations.
   </p>
 <div style="max-width: 800px; margin: 1.5em auto; text-align: justify;">
-  <p><b>Observation 1 – FDAs evolve into a long-tailed spectrum structure during optimization:</b> FDAs align the model’s intermediate representations across tasks, reducing domain discrepancy.</p>
+  <p><b>Observation 1 – FDAs evolve into a long-tailed spectrum structure during optimization:</b> We perform SVD on the FDA matrices and normalize singular values by the largest one. From the Figure, the normalized tail
+   singular values decays rapidly in construction process for different initializations. This phenomenon is reasonable, as task-specific knowledge absorption often manifests as a long-tailed, low-rank structure in the parameter space as well. </p>
   <p><b>Observation 2 – The high-energy subspaces of FDAs gradually aligns with that of real data:</b> The learned FDAs capture task semantics efficiently, using only a few synthetic samples per task.</p>
   <p><b>Observation 3 – FDAs-induced adaptation increasingly aligns with that induced by real data:</b> FDAs facilitate smoother transitions when merging diverse downstream models.</p>
 </div>
