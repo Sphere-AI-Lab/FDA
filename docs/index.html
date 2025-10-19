@@ -167,6 +167,7 @@ window.MathJax = {
     </h2>
   </div>
 </section>
+  <div style="display: flex; justify-content: center; margin-top: 1em;">
    <table style="width:60%; border-collapse: collapse; font-size: 12px; text-align: center; margin-top: 1em;">
   <thead style="background-color: #f5f5f5;">
     <tr>
@@ -197,6 +198,7 @@ window.MathJax = {
     <tr style="background-color:#f0f0f0;"><td style="text-align:left;">FDAs (WUDI, Weight)</td><td>0.4848</td><td>0.9392</td><td>0.7573</td><td>0.7546</td><td>0.6979</td><td>0.7072</td><td>0.5656</td><td>0.6643</td><td>0.6964</td><td style="color:#006400;">+0.0517</td></tr>
   </tbody>
 </table>
+  </div>
 
 <p style="font-size: 11px; color: #555; text-align: center; max-width: 900px; margin: 0 auto; margin-top: 0.5em;">
   Performance of merging RoBERTa-Large models across eight NLU tasks. The second section (from RegMean to ProDistill) includes methods that use task-specific data, 
@@ -247,7 +249,7 @@ window.MathJax = {
   <p style="max-width: 800px; margin: 0 auto; text-align: justify;">
  To validate the effectiveness of the merging direction provided by FDAs, we use FDAs to adapt the pretrained model and compare the multi-task performance 
 with its dual framework (i.e., task vectors, TA). To show the robustness, we initialize the pretrained model by the merged parameters, which are derived from data-free
-task-vector-based methods. We consider three data-free methods, TA, TSVM, WUDI. The former one is the classical method, while the latter two are the 
+task-vector-based methods. We consider three data-free methods, TA(<sup><a href="#ref-Ilharco2022">Ilharco et al., 2022</a></sup>), TSVM(<sup><a href="#ref-Gargiulo2025">Gargiulo et al., 2025</a></sup>), WUDI(<sup><a href="#ref-Cheng2025">Cheng et al., 2025</a></sup>). The former one is the classical method, while the latter two are the 
 current state-of-the-art methods. We present partial results in the above tables. More results can be found in our paper. From the results, we have two key observations:
     <div style="max-width: 800px; margin: 1.5em auto; text-align: justify;">
   <p><b>Observation 1 – FDAs can effectively leverage existing task-specific knowledge for multi-task modelmerging:</b> 
@@ -438,6 +440,12 @@ Bernhard Sch¨olkopf. Iterative teaching by data hallucination. </li>
 replay. </li>
     <li id="ref-yu2023">Longhui Yu, Tianyang Hu, Lanqing Hong, Zhen Liu, Adrian Weller, and Weiyang Liu. Continual
 learning by modeling intra-class variation.</li>
+    <li id="ref-Ilharco2022">Gabriel Ilharco, Marco Tulio Ribeiro, Mitchell Wortsman, Suchin Gururangan, Ludwig Schmidt,
+Hannaneh Hajishirzi, and Ali Farhadi. Editing models with task arithmetic.</li>
+    <li id="ref-Gargiulo2025">Antonio Andrea Gargiulo, Donato Crisostomi, Maria Sofia Bucarelli, Simone Scardapane, Fabrizio
+Silvestri, and Emanuele Rodola. Task singular vectors: Reducing task interference in model merging.</li>
+      <li id="ref-Cheng2025">Runxi Cheng, Feng Xiong, Yongxian Wei, Wanyun Zhu, and Chun Yuan. Whoever started the
+interference should end it: Guiding data-free model merging via task vectors.</li>
   </ol>
 </section>
 
