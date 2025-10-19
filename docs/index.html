@@ -344,13 +344,26 @@ Since FDAs projects the task-specific knowledge into the input-representation sp
 interesting observations.
   </p>
 <div style="max-width: 800px; margin: 1.5em auto; text-align: justify;">
-  <p><b>Observation 1 – FDAs evolve into a long-tailed spectrum structure during optimization:</b> We perform SVD on the FDA matrices and normalize singular values by the largest one. From the Figure, the normalized tail
+  <p><b>Observation 1 – FDAs evolve into a long-tailed spectrum structure during optimization:</b> We perform SVD on the FDA matrices and normalize singular values by the largest one. From the Figure 3, the normalized tail
    singular values decays rapidly in construction process for different initializations. This phenomenon is reasonable, as task-specific knowledge absorption often manifests as a long-tailed, low-rank structure in the parameter space as well. </p>
-  <p><b>Observation 2 – The high-energy subspaces of FDAs gradually aligns with that of real data:</b> Considering the long-tailed structure of FDAs, we measure subspace similarity of top $20\%$ singular vectores between real data and FDAs via Projection Matrix. From the examples in Figure, the similarity
+  <figure style="text-align: center; margin: 1em 0;">
+    <img src="assets/singular_values.png" alt="SVD spectrum of FDAs" style="width: 90%; border: 1px solid #ccc; border-radius: 8px;">
+  </figure>
+
+  <p><b>Observation 2 – The high-energy subspaces of FDAs gradually aligns with that of real data:</b> Considering the long-tailed structure of FDAs, we measure subspace similarity of top $20\%$ singular vectores between real data and FDAs via Projection Matrix. From the examples in Figure 4, the similarity
   gradually increases as the optimization proceeds. This suggests a potential connection between the knowledge encoded in FDAs and the real task data. </p>
-  <p><b>Observation 3 – FDAs-induced adaptation increasingly aligns with that induced by real data:</b> We analyze FDAs here by re-projecting them into the parameter space, i.e., the adaptation they induce. We project the FDA-induced adaptation onto a non-negative cone spanned by parameter updation vectors derived from real data. As shown in Figure,
+
+  <figure style="text-align: center; margin: 1em 0;">
+    <img src="assets/subspace_similarity.png" alt="Subspace of FDAs" style="width: 90%; border: 1px solid #ccc; border-radius: 8px;">
+  </figure>
+  
+  <p><b>Observation 3 – FDAs-induced adaptation increasingly aligns with that induced by real data:</b> We analyze FDAs here by re-projecting them into the parameter space, i.e., the adaptation they induce. We project the FDA-induced adaptation onto a non-negative cone spanned by parameter updation vectors derived from real data. As shown in Figure 5,
   the projection energy gradually increases in both pretrained model and merged model. This indicates that FDAs progressively produce the robust task-specific functional shifts.
   </p>
+
+    <figure style="text-align: center; margin: 1em 0;">
+    <img src="assets/projection_energy.png" alt="energy of FDAs" style="width: 90%; border: 1px solid #ccc; border-radius: 8px;">
+  </figure>
 </div>
 
 </section>
