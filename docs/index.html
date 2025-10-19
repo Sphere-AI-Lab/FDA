@@ -18,6 +18,53 @@ window.MathJax = {
 <script id="MathJax-script" async 
   src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
 </script>
+   <style>
+    /* principle 环境样式（外观类似 LaTeX 定理环境） */
+    .principle {
+      max-width: 900px;
+      margin: 1.5em auto;
+      padding: 0.9em 1.1em;
+      background: #ffffff;
+      border-left: 6px solid #2b6cb0; /* 左侧彩色条 */
+      box-shadow: 0 2px 8px rgba(20,20,20,0.04);
+      border-radius: 6px;
+      font-family: "Noto Sans", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      color: #111;
+      line-height: 1.6;
+    }
+
+    .principle-header {
+      display: flex;
+      align-items: baseline;
+      gap: 0.6em;
+      margin-bottom: 0.4em;
+    }
+
+    .principle-label {
+      font-weight: 700;
+      color: #0b5394;
+      font-size: 0.95em;
+    }
+
+    .principle-title {
+      font-weight: 600;
+      font-size: 1.02em;
+      color: #111;
+    }
+
+    .principle-body {
+      margin-top: 0.35em;
+      font-size: 0.98em;
+      color: #2c2c2c;
+      text-align: justify;
+    }
+
+    /* 可选：数学公式居中显示时的样式 */
+    .principle .mjx-display {
+      text-align: center;
+      margin: 0.6em 0;
+    }
+  </style>
 </head>
 <body>
   <header>
@@ -34,7 +81,8 @@ window.MathJax = {
     </div>
   </header>
 
-  <img src="assets/illustration_only.png" alt="FDA Illustration" width="70%"">
+  <img src="assets/illustration_only.png" alt="FDA Illustration" width="70%" 
+     style="display: block; margin: 0 auto;">
   <section id="abstract" style="text-align: center;">
     <h2 style="border-bottom: none; margin-bottom: 0.5em;">
       FDA: A New Framework for Model Merging
@@ -135,12 +183,11 @@ In the second stage, these FDAs are used to adapt the model, i.e., integrate kno
   <!-- 子小节1 -->
   <div style="max-width: 800px; margin: 2em auto 0 auto; text-align: justify;">
     <h3 style="text-align: left; margin-bottom: 0.5em;">1. Construction</h3>
-p>
-  Given the pretrained model $\varphi(\theta_0)$ and the corresponding finetuned checkpoint 
-  $\varphi(\theta_i)$, we construct the FDAs for $\varphi(\theta_i)$
+<p>
+  Given the pretrained model $\varphi(\boldsymbol{\theta}_0)$ and the corresponding finetuned checkpoint 
+  $\varphi(\boldsymbol{\theta}_i)$, we construct the FDAs $\{\boldsymbol{x}_{ij}\}_{j=1}^n$ for $\varphi(\boldsymbol{\theta}_i)$
   via solving the following optimization problem:
 </p>
-
 $$
 \min_{\mathbf{x}_{i1},\dots,\mathbf{x}_{in}} 
 \mathrm{cos\_dist}\!\Bigg(
@@ -159,8 +206,27 @@ where $\mathrm{cos\_dist}(\mathbf{A},\mathbf{B}) = 1 -
 $\mathrm{vec}$ denotes the operation that vectorizes a matrix into a vector 
 in row-major order, and $\mathrm{Dist}(\cdot)$ denotes a differentiable distance 
 function measuring the representation discrepancy between 
-$\varphi(\boldsymbol{\theta}_0)$ and $\varphi(\boldsymbol{\theta}_i)$.
+$\varphi(\boldsymbol{\theta}_0)$ and $\varphi(\boldsymbol{\theta}_i)$. 
 </p>
+<p>
+  The gradient-based iterative optimization methods are adopted. It is well known that gradient-based methods are sensitive to initialization. Thus, we analyze the optimization dynamics of anchors on a linear encoder and derive a principle for
+  initialization. 
+  <div class="principle" role="region" aria-labelledby="principle-1-title">
+    <div class="principle-header">
+      <div class="principle-label">Principle</div>
+      <div id="principle-1-title" class="principle-title">Initialization Principle</div>
+    </div>
+
+    <div class="principle-body">
+      <p>
+        An effective initialization strategy should limit the energy of the initialization point within the tail subspace spanned by the task vector.
+      </p>
+    </div>
+  </div>
+</p>
+    <p>
+      Based on this principle, we derive two practical initialization schemes. 
+    </p>
   </div>
 
   <!-- 子小节2 -->
