@@ -229,7 +229,21 @@ window.MathJax = {
  To validate the effectiveness of the merging direction provided by FDAs, we use FDAs to adapt the pretrained model and compare the multi-task performance 
 with its dual framework (i.e., task vectors, TA). To show the robustness, we initialize the pretrained model by the merged parameters, which are derived from data-free
 task-vector-based methods. We consider three data-free methods, TA, TSVM, WUDI. The former one is the classical method, while the latter two are the 
-current state-of-the-art methods. We present some results. More results can be found in our paper. 
+current state-of-the-art methods. We present partial results in the above tables. More results can be found in our paper. From the results, we have two key observations:
+    <div style="max-width: 800px; margin: 1.5em auto; text-align: justify;">
+  <p><b>Observation 1 – FDAs can effectively leverage existing task-specific knowledge for multi-task modelmerging:</b> 
+  Comparing to the dual framework TA, FDAs bring a significant improvement:
+the multi-task performance of pretrained model adapted by FDAs achieves 87.26, compared with
+73.94 of TA, representing an improvement of nearly 18%; meanwhile, the average GLUE score
+achieves 15.4% improvement. 
+  </p>
+  <p><b>Observation 2 –Flexible knowledge modeling:</b> although FDAs
+and data-free parameter-centric methods leverage
+the same task-specific knowledge, FDAs still im-
+prove the merged models by these methods. The
+average improvement via FDAs on TA, TSV, and
+WUDI is nearly 5.10% on ViT-B/16, and about 13% on RoBERTa-Large.  </p>
+</div>
   </p>
 </section>
 
