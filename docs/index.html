@@ -211,10 +211,10 @@ $\varphi(\boldsymbol{\theta}_0)$ and $\varphi(\boldsymbol{\theta}_i)$.
 <p>
   The gradient-based iterative optimization methods are adopted. It is well known that gradient-based methods are sensitive to initialization. Thus, we analyze the optimization dynamics of anchors on a linear encoder and derive a principle for
   initialization. 
-  <div class="principle" role="region" aria-labelledby="principle-1-title">
+  <div class="Initialization Principle" role="region" aria-labelledby="principle-1-title">
     <div class="principle-header">
       <div class="principle-label">Principle</div>
-      <div id="principle-1-title" class="principle-title">Initialization Principle</div>
+      <div id="principle-1-title" class="principle-title"></div>
     </div>
 
     <div class="principle-body">
@@ -225,7 +225,8 @@ $\varphi(\boldsymbol{\theta}_0)$ and $\varphi(\boldsymbol{\theta}_i)$.
   </div>
 </p>
     <p>
-      Based on this principle, we derive two practical initialization schemes. 
+      Based on this principle, we derive two practical initialization schemes: linear weight sampling $\boldsymbol{x}_{ij}=(\boldsymbol{W}_i)_{l_j,:}\$ and scaled Gaussian sampling $\vx_{ij} = \sigma \cdot \tilde{\boldsymbol{x}}_{ij},
+\tilde{\boldsymbol{x}}_{ij} \sim \mathcal{N}(\mathbf{0}, \boldsymbol{I}_d)$, where $\boldsymbol{W}$ denotes the weight matrix. 
     </p>
   </div>
 
@@ -233,8 +234,17 @@ $\varphi(\boldsymbol{\theta}_0)$ and $\varphi(\boldsymbol{\theta}_i)$.
   <div style="max-width: 800px; margin: 2em auto 0 auto; text-align: justify;">
     <h3 style="text-align: left; margin-bottom: 0.5em;">2. Adaptation</h3>
     <p>
-      For NLP tasks on the GLUE benchmark, FDAs demonstrate smoother merging trajectories and less performance degradation
-      under conflicting task updates, outperforming traditional model merging baselines such as Task Arithmetic and DARE.
+      The adaptation process with FDAs is the dual process of the above Construction process. When the merged model is initialized by the pretrained checkpoint,
+      the adaptation process is to optimize the following objective:
+      $$
+\min_{\boldsymbol{\theta_0}} 
+\sum_{i=1}^m \sum_{j=1}^{n} 
+\mathrm{Dist}\!\Big( 
+\varphi(\boldsymbol{\theta_0}, \mathbf{x}_{ij}),
+\varphi(\boldsymbol{\theta}_i, \mathbf{x}_{ij})
+\Big),
+$$
+      
     </p>
   </div>
 </section>
