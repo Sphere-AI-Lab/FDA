@@ -165,13 +165,6 @@ window.MathJax = {
 
     <tr><td colspan="11" style="border-bottom:1px solid #bbb;"></td></tr>
 
-    <tr><td style="text-align:left;">RegMean</td><td>0.3449</td><td>0.8922</td><td>0.5949</td><td>0.3509</td><td>0.8045</td><td>0.5894</td><td>0.6132</td><td>0.6534</td><td>0.6054</td><td>-</td></tr>
-    <tr><td style="text-align:left;">Fisher merging</td><td>0.2700</td><td>0.7856</td><td>0.7517</td><td>0.2624</td><td>0.3159</td><td>0.4385</td><td>0.5367</td><td>0.6426</td><td>0.5004</td><td>-</td></tr>
-    <tr><td style="text-align:left;">AdaMerging</td><td>0.1027</td><td>0.9335</td><td>0.7480</td><td><b>0.7432</b></td><td>0.3159</td><td>0.7506</td><td>0.8578</td><td>0.6245</td><td>0.6345</td><td>-</td></tr>
-    <tr><td style="text-align:left;">ProDistill</td><td><b>0.4833</b></td><td><b>0.9427</b></td><td><b>0.8655</b></td><td>0.7310</td><td><b>0.8269</b></td><td><b>0.8122</b></td><td><b>0.8825</b></td><td><b>0.7545</b></td><td><b>0.7873</b></td><td>-</td></tr>
-
-    <tr><td colspan="11" style="border-bottom:1px solid #bbb;"></td></tr>
-
     <tr><td style="text-align:left;">TA</td><td>0.1635</td><td>0.8716</td><td>0.7480</td><td>0.6603</td><td>0.3159</td><td>0.6101</td><td>0.8716</td><td>0.7366</td><td>0.5918</td><td>-</td></tr>
     <tr><td style="text-align:left;">TSV</td><td>0.4791</td><td>0.9323</td><td>0.7459</td><td>0.6660</td><td>0.3300</td><td>0.6750</td><td>0.7761</td><td>0.6751</td><td>0.6599</td><td>-</td></tr>
     <tr><td style="text-align:left;">WUDI</td><td>0.4201</td><td>0.9232</td><td>0.7487</td><td>0.7345</td><td>0.5393</td><td>0.6430</td><td>0.5746</td><td>0.5740</td><td>0.6447</td><td>-</td></tr>
@@ -210,14 +203,6 @@ window.MathJax = {
 
     <tr><td colspan="11" style="border-bottom:1px solid #bbb;"></td></tr>
 
-    <tr><td style="text-align:left;">RegMean</td><td>70.84</td><td>75.18</td><td>83.13</td><td>94.44</td><td>90.80</td><td>82.43</td><td>98.66</td><td>60.74</td><td>82.03</td><td>-</td></tr>
-    <tr><td style="text-align:left;">Fisher merging</td><td>66.78</td><td>70.49</td><td>72.17</td><td>80.19</td><td>88.33</td><td>68.14</td><td>96.60</td><td>48.46</td><td>73.89</td><td>-</td></tr>
-    <tr><td style="text-align:left;">AdaMerging</td><td>64.30</td><td>74.37</td><td>74.63</td><td>94.89</td><td>91.19</td><td>94.94</td><td>97.95</td><td>69.63</td><td>82.74</td><td>-</td></tr>
-    <tr><td style="text-align:left;">Representation Surgery</td><td><b>73.60</b></td><td>81.50</td><td>90.40</td><td>98.50</td><td>93.20</td><td>97.40</td><td>98.90</td><td><b>77.00</b></td><td>88.80</td><td>-</td></tr>
-    <tr><td style="text-align:left;">ProDistill</td><td>72.82</td><td><b>81.94</b></td><td><b>91.94</b></td><td><b>99.52</b></td><td><b>97.11</b></td><td><b>97.65</b></td><td><b>99.60</b></td><td>70.74</td><td><b>88.92</b></td><td>-</td></tr>
-
-    <tr><td colspan="11" style="border-bottom:1px solid #bbb;"></td></tr>
-
     <tr><td style="text-align:left;">TA</td><td>62.07</td><td>66.14</td><td>74.00</td><td>76.48</td><td>88.02</td><td>73.79</td><td>98.52</td><td>52.50</td><td>73.94</td><td>-</td></tr>
     <tr><td style="text-align:left;">TSV</td><td>72.83</td><td>80.20</td><td>88.97</td><td>97.22</td><td>93.93</td><td>93.94</td><td>99.27</td><td>72.66</td><td>87.38</td><td>-</td></tr>
     <tr><td style="text-align:left;">WUDI</td><td>75.40</td><td>81.71</td><td>90.14</td><td>98.52</td><td><b>95.30</b></td><td><b>96.55</b></td><td><b>99.44</b></td><td>73.78</td><td>88.85</td><td>-</td></tr>
@@ -242,15 +227,9 @@ window.MathJax = {
 
   <p style="max-width: 800px; margin: 0 auto; text-align: justify;">
  To validate the effectiveness of the merging direction provided by FDAs, we use FDAs to adapt the pretrained model and compare the multi-task performance 
-with its dual framework (i.e., task vectors). To show the robustness, we initialize the pretrained model by the merged parameters, which are derived from data-free
-task-vector-based methods. We consider three data-free methods, TA (task arithmetic), TSVM, WUDI. The former one is the classical method, while the latter two are the 
-current state-of-the-art methods. We present some results. More results can be found in our paper.
-  </p>
-
-  <p style="max-width: 800px; margin: 1em auto 0 auto; text-align: justify;">
-    In vision tasks, FDAs achieve comparable or superior accuracy to joint multi-task training while maintaining
-    full modularity and no access to original data. For NLP tasks on the GLUE benchmark, FDAs demonstrate smoother
-    merging trajectories and less performance degradation under conflicting task updates. These results highlight the robustness and generality of FDAs as a unifying framework for functional model merging.
+with its dual framework (i.e., task vectors, TA). To show the robustness, we initialize the pretrained model by the merged parameters, which are derived from data-free
+task-vector-based methods. We consider three data-free methods, TA, TSVM, WUDI. The former one is the classical method, while the latter two are the 
+current state-of-the-art methods. We present some results. More results can be found in our paper. 
   </p>
 </section>
 
@@ -259,14 +238,12 @@ current state-of-the-art methods. We present some results. More results can be f
     A Practical Algorithm for FDAs
   </h2>
 
-  <!-- 简要介绍 -->
   <p style="max-width: 800px; margin: 0 auto; text-align: justify;">
 The practical algorithms for FDAs involve two main stages: constructing FDAs and adapting with FDAs.
 In the first stage, FDAs are built for each downstream checkpoint. This stage can be deemed as projecting task-specific knowledge into the input–representation space.
 In the second stage, these FDAs are used to adapt the model, i.e., integrate knowledge across multiple tasks.
   </p>
 
-  <!-- 子小节1 -->
   <div style="max-width: 800px; margin: 2em auto 0 auto; text-align: justify;">
     <h3 style="text-align: left; margin-bottom: 0.5em;">1. Construction</h3>
 <p>
