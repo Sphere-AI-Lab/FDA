@@ -269,7 +269,8 @@ interesting observations.
 <div style="max-width: 800px; margin: 1.5em auto; text-align: justify;">
   <p><b>Observation 1 – FDAs evolve into a long-tailed spectrum structure during optimization:</b> We perform SVD on the FDA matrices and normalize singular values by the largest one. From the Figure, the normalized tail
    singular values decays rapidly in construction process for different initializations. This phenomenon is reasonable, as task-specific knowledge absorption often manifests as a long-tailed, low-rank structure in the parameter space as well. </p>
-  <p><b>Observation 2 – The high-energy subspaces of FDAs gradually aligns with that of real data:</b> The learned FDAs capture task semantics efficiently, using only a few synthetic samples per task.</p>
+  <p><b>Observation 2 – The high-energy subspaces of FDAs gradually aligns with that of real data:</b> Considering the long-tailed structure of FDAs, we measure subspace similarity of top $20\%$ singular vectores between real data and FDAs via Projection Matrix. From the examples in Figure, the similarity
+  gradually increases as the optimization proceeds. This suggests a potential connection between the knowledge encoded in FDAs and the real task data. </p>
   <p><b>Observation 3 – FDAs-induced adaptation increasingly aligns with that induced by real data:</b> FDAs facilitate smoother transitions when merging diverse downstream models.</p>
 </div>
 
