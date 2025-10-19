@@ -271,7 +271,9 @@ interesting observations.
    singular values decays rapidly in construction process for different initializations. This phenomenon is reasonable, as task-specific knowledge absorption often manifests as a long-tailed, low-rank structure in the parameter space as well. </p>
   <p><b>Observation 2 – The high-energy subspaces of FDAs gradually aligns with that of real data:</b> Considering the long-tailed structure of FDAs, we measure subspace similarity of top $20\%$ singular vectores between real data and FDAs via Projection Matrix. From the examples in Figure, the similarity
   gradually increases as the optimization proceeds. This suggests a potential connection between the knowledge encoded in FDAs and the real task data. </p>
-  <p><b>Observation 3 – FDAs-induced adaptation increasingly aligns with that induced by real data:</b> FDAs facilitate smoother transitions when merging diverse downstream models.</p>
+  <p><b>Observation 3 – FDAs-induced adaptation increasingly aligns with that induced by real data:</b> We analyze FDAs here by re-projecting them into the parameter space, i.e., the adaptation they induce. We project the FDA-induced adaptation onto a non-negative cone spanned by parameter updation vectors derived from real data. As shown in Figure,
+  the projection energy gradually increases in both pretrained model and merged model. This indicates that FDAs progressively produce the robust task-specific functional shifts.
+  </p>
 </div>
 
 </section>
