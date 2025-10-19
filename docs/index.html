@@ -150,11 +150,49 @@ window.MathJax = {
   <h2 style="border-bottom: none; margin-bottom: 0.5em;">
     FDAs Provide More Flexible and Robust Merging Direction
   </h2>
+<table style="width:100%; border-collapse: collapse; font-size: 12px; text-align: center; margin-top: 1em;">
+  <thead style="background-color: #f5f5f5;">
+    <tr>
+      <th style="border: 1px solid #ddd; padding: 6px;">Method</th>
+      <th>CoLA</th><th>SST-2</th><th>MRPC</th><th>STS-B</th><th>QQP</th>
+      <th>MNLI</th><th>QNLI</th><th>RTE</th><th>Avg</th><th>&Delta;</th>
+    </tr>
+  </thead>
 
-  <div style="text-align: center; margin-bottom: 1em;">
-    <img src="./docs/assets/fda_performance.png" alt="FDA Performance" width="80%">
-    <p style="font-size: small; color: gray;">Figure 2: Performance comparison of FDAs with other model merging methods.</p>
-  </div>
+  <tbody>
+    <tr><td style="text-align:left;">Pretrained</td><td>0.1679</td><td>0.4897</td><td>0.7480</td><td>-0.0471</td><td>0.3159</td><td>0.3545</td><td>0.5054</td><td>0.4693</td><td>0.3754</td><td>-</td></tr>
+    <tr><td style="text-align:left;">Individual</td><td>0.6335</td><td>0.9001</td><td>0.9224</td><td>0.9418</td><td>0.9055</td><td>0.8267</td><td>0.9507</td><td>0.9222</td><td>0.8754</td><td>-</td></tr>
+
+    <tr><td colspan="11" style="border-bottom:1px solid #bbb;"></td></tr>
+
+    <tr><td style="text-align:left;">RegMean</td><td>0.3449</td><td>0.8922</td><td>0.5949</td><td>0.3509</td><td>0.8045</td><td>0.5894</td><td>0.6132</td><td>0.6534</td><td>0.6054</td><td>-</td></tr>
+    <tr><td style="text-align:left;">Fisher merging</td><td>0.2700</td><td>0.7856</td><td>0.7517</td><td>0.2624</td><td>0.3159</td><td>0.4385</td><td>0.5367</td><td>0.6426</td><td>0.5004</td><td>-</td></tr>
+    <tr><td style="text-align:left;">AdaMerging</td><td>0.1027</td><td>0.9335</td><td>0.7480</td><td><b>0.7432</b></td><td>0.3159</td><td>0.7506</td><td>0.8578</td><td>0.6245</td><td>0.6345</td><td>-</td></tr>
+    <tr><td style="text-align:left;">ProDistill</td><td><b>0.4833</b></td><td><b>0.9427</b></td><td><b>0.8655</b></td><td>0.7310</td><td><b>0.8269</b></td><td><b>0.8122</b></td><td><b>0.8825</b></td><td><b>0.7545</b></td><td><b>0.7873</b></td><td>-</td></tr>
+
+    <tr><td colspan="11" style="border-bottom:1px solid #bbb;"></td></tr>
+
+    <tr><td style="text-align:left;">TA</td><td>0.1635</td><td>0.8716</td><td>0.7480</td><td>0.6603</td><td>0.3159</td><td>0.6101</td><td>0.8716</td><td>0.7366</td><td>0.5918</td><td>-</td></tr>
+    <tr><td style="text-align:left;">TSV</td><td>0.4791</td><td>0.9323</td><td>0.7459</td><td>0.6660</td><td>0.3300</td><td>0.6750</td><td>0.7761</td><td>0.6751</td><td>0.6599</td><td>-</td></tr>
+    <tr><td style="text-align:left;">WUDI</td><td>0.4201</td><td>0.9232</td><td>0.7487</td><td>0.7345</td><td>0.5393</td><td>0.6430</td><td>0.5746</td><td>0.5740</td><td>0.6447</td><td>-</td></tr>
+
+    <!-- 灰色行：FDAs 系列 -->
+    <tr style="background-color:#f0f0f0;"><td style="text-align:left;">FDAs (Pretrained, Gauss)</td><td>0.3198</td><td>0.8463</td><td>0.7790</td><td>0.6828</td><td><b>0.7423</b></td><td>0.5605</td><td>0.6021</td><td><b>0.7726</b></td><td>0.6632</td><td style="color:#006400;">+0.2878</td></tr>
+    <tr style="background-color:#f0f0f0;"><td style="text-align:left;">FDAs (Pretrained, Weight)</td><td>0.3883</td><td>0.8911</td><td><b>0.7858</b></td><td>0.7230</td><td>0.7410</td><td>0.5791</td><td>0.6207</td><td>0.7329</td><td>0.6827</td><td style="color:#006400;">+0.3073</td></tr>
+    <tr style="background-color:#f0f0f0;"><td style="text-align:left;">FDAs (TA, Gauss)</td><td>0.4043</td><td><b>0.9461</b></td><td>0.7692</td><td>0.7897</td><td>0.6916</td><td>0.7190</td><td>0.7487</td><td>0.7076</td><td><b>0.7220</b></td><td style="color:#006400;">+0.1302</td></tr>
+    <tr style="background-color:#f0f0f0;"><td style="text-align:left;">FDAs (TA, Weight)</td><td>0.4511</td><td>0.9404</td><td>0.7578</td><td>0.7926</td><td>0.6518</td><td><b>0.7411</b></td><td>0.6965</td><td>0.7148</td><td>0.7183</td><td style="color:#006400;">+0.1265</td></tr>
+    <tr style="background-color:#f0f0f0;"><td style="text-align:left;">FDAs (TSV, Gauss)</td><td><b>0.5036</b></td><td>0.9438</td><td>0.7521</td><td><b>0.7975</b></td><td>0.4128</td><td>0.7075</td><td><b>0.8477</b></td><td>0.7365</td><td>0.7127</td><td style="color:#006400;">+0.0528</td></tr>
+    <tr style="background-color:#f0f0f0;"><td style="text-align:left;">FDAs (TSV, Weight)</td><td>0.5021</td><td>0.9427</td><td>0.7490</td><td>0.7418</td><td>0.5062</td><td>0.7292</td><td>0.8146</td><td>0.7365</td><td>0.7153</td><td style="color:#006400;">+0.0554</td></tr>
+    <tr style="background-color:#f0f0f0;"><td style="text-align:left;">FDAs (WUDI, Gauss)</td><td>0.4841</td><td>0.9404</td><td>0.7647</td><td>0.7645</td><td>0.6778</td><td>0.7004</td><td>0.5911</td><td>0.6643</td><td>0.6984</td><td style="color:#006400;">+0.0537</td></tr>
+    <tr style="background-color:#f0f0f0;"><td style="text-align:left;">FDAs (WUDI, Weight)</td><td>0.4848</td><td>0.9392</td><td>0.7573</td><td>0.7546</td><td>0.6979</td><td>0.7072</td><td>0.5656</td><td>0.6643</td><td>0.6964</td><td style="color:#006400;">+0.0517</td></tr>
+  </tbody>
+</table>
+
+<p style="font-size: 11px; color: #555; text-align: center; max-width: 900px; margin: 0 auto; margin-top: 0.5em;">
+  Performance of merging RoBERTa-Large models across eight NLU tasks. The second section (from RegMean to ProDistill) includes methods that use task-specific data, 
+  and the third section is data-free methods. “FDA (<i>init model</i>, <i>FDA init</i>)” denotes the choice of the initial model and the initialization strategies 
+  for FDAs, respectively. “Δ” denotes the performance improvement compared to the initial model.
+</p>
 
   <p style="max-width: 800px; margin: 0 auto; text-align: justify;">
  To validate the effectiveness of the merging direction provided by FDAs, we use FDAs to adapt the pretrained model and compare the multi-task performance 
