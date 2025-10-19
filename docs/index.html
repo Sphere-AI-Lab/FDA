@@ -108,12 +108,10 @@ window.MathJax = {
 
       <div style="max-width: 900px; margin: 0 auto; text-align: justify; overflow: hidden;">
       
-        <!-- 右侧小图 -->
         <img src="assets/loss_landscape_v3.png" 
              alt="FDA Loss Landscape"
              style="float: right; width: 40%; margin-left: 1em; margin-top: 1em;border-radius: 8px; vertical-align: top;">
       
-        <!-- 文字主体（强制与图像顶部对齐） -->
           <p>
             To gain an intuitive understanding of FDAs, we compare their optimization trajectories with those of task arithmetic in Figure 2.
             We treat the obtained FDAs as finetuning data and optimize the model parameters accordingly.
@@ -124,10 +122,8 @@ window.MathJax = {
             Unlike task vectors, which are sensitive to initialization and can drift under different starting points,
             FDAs exhibit robustness to such variations, facilitating more reliable model merging.
           </p>
-      
-      </div>
 
-      <p>
+         <p>
         Another motivation behind FDAs is that modeling the input
         space is generally easier than modeling the parameter space, as the input space tends to be more
         structured. The effectiveness of modeling the input space for knowledge transfer has been extensively
@@ -141,6 +137,8 @@ window.MathJax = {
         and continual learning (<sup><a href="#ref-shin2017">Shin et al., 2017</a></sup>;
         <sup><a href="#ref-yu2023">Yu et al., 2023</a></sup>).
       </p>
+      
+      </div>
 </section>
 
   <section id="performance" style="text-align: center; margin-top: 3em;">
@@ -293,14 +291,19 @@ interesting observations.
     <section id="references" style="text-align:left; max-width:800px; margin: 2em auto;">
   <h3>References</h3>
   <ol>
-    <li id="ref-wang2018b">Wang, T., Zhu, J. et al. (2018b). Dataset Distillation. <i>ICLR</i>.</li>
-    <li id="ref-cazenavette2022">Cazenavette, G., et al. (2022). Dataset Condensation with Gradient Matching. <i>CVPR</i>.</li>
-    <li id="ref-liu2017a">Liu, Y., et al. (2017a). Iterative Machine Teaching. <i>NeurIPS</i>.</li>
-    <li id="ref-qiu2023">Qiu, X., et al. (2023). Teaching via Iterative Distillation. <i>ICML</i>.</li>
-    <li id="ref-zhao2021">Zhao, B., et al. (2021). Dataset Condensation with Gradient Matching. <i>ICLR</i>.</li>
-    <li id="ref-zhao2023">Zhao, B., & Bilen, H. (2023). Synthesizing Informative Data for Efficient Learning. <i>CVPR</i>.</li>
-    <li id="ref-shin2017">Shin, H., et al. (2017). Continual Learning with Deep Generative Replay. <i>NeurIPS</i>.</li>
-    <li id="ref-yu2023">Yu, C., et al. (2023). Continual Learning with Functional Regularization. <i>ICML</i>.</li>
+    <li id="ref-wang2018b">Tongzhou Wang, Jun-Yan Zhu, Antonio Torralba, and Alexei A Efros. Dataset distillation. </li>
+    <li id="ref-cazenavette2022">George Cazenavette, Tongzhou Wang, Antonio Torralba, Alexei A Efros, and Jun-Yan Zhu. Dataset
+distillation by matching training trajectories. </li>
+    <li id="ref-liu2017a">Weiyang Liu, Bo Dai, Ahmad Humayun, Charlene Tay, Chen Yu, Linda B Smith, James M Rehg,
+and Le Song. Iterative machine teaching. </li>
+    <li id="ref-qiu2023"> Zeju Qiu, Weiyang Liu, Tim Z Xiao, Zhen Liu, Umang Bhatt, Yucen Luo, Adrian Weller, and
+Bernhard Sch¨olkopf. Iterative teaching by data hallucination. </li>
+    <li id="ref-zhao2021">Bo Zhao, Konda Reddy Mopuri, and Hakan Bilen. Dataset condensation with gradient matching. </li>
+    <li id="ref-zhao2023">Bo Zhao and Hakan Bilen. Dataset condensation with distribution matching.</li>
+    <li id="ref-shin2017">Hanul Shin, Jung Kwon Lee, Jaehong Kim, and Jiwon Kim. Continual learning with deep generative
+replay. </li>
+    <li id="ref-yu2023">Longhui Yu, Tianyang Hu, Lanqing Hong, Zhen Liu, Adrian Weller, and Weiyang Liu. Continual
+learning by modeling intra-class variation.</li>
   </ol>
 </section>
 
