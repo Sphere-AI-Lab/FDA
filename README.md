@@ -17,10 +17,10 @@ FDAs provide an alternative perspective on model merging by extending input-spac
 ### Checkpoints and Corresponding FDAs
 To help you quickly get started with **Functional Dual Anchors (FDAs)**, we provide download links for the checkpoints used in the paper, along with the corresponding FDAs.
 #### Vision Tasks
-We directly use the checkpoints provided at the following link: [Vision Checkpoints (Google Drive)](https://drive.google.com/drive/folders/1u_Tva6x0p6oxu5Eo0ZZsf-520Cc_3MKw).
+We directly use the checkpoints provided at the following link: [Vision Checkpoints (Google Drive)](https://drive.google.com/drive/folders/1u_Tva6x0p6oxu5Eo0ZZsf-520Cc_3MKw). For convenience, you can download all vision models of our experiment in our hugging face link: ().
 #### NLP Tasks
 We adopt the pretrained **RoBERTa-base** and **RoBERTa-large** models from [Hugging Face – RoBERTa Large](https://huggingface.co/FacebookAI/roberta-large).
-Then, we use the finetuning scripts from [DARE](https://github.com/YourDARERepoLink) to obtain the checkpoints on **eight GLUE benchmarks**.  
+Then, we use the finetuning scripts from [DARE](https://github.com/YourDARERepoLink) to obtain the checkpoints on **eight GLUE benchmarks**.  For convenience, you can download all NLP models of our experiment in our hugging face link: (https://huggingface.co/SphereLab/nlu_models_in_FDA).
 #### NLG Tasks
 - **Base Model:** [Llama-2-13B (Meta)](https://huggingface.co/meta-llama/Llama-2-13b-hf)  
 - **Expert Models:** [WizardMath-13B-V1.0](https://huggingface.co/vanillaOVO/WizardMath-13B-V1.0); [Llama-2-13B-Code-Alpaca](https://huggingface.co/layoric/llama-2-13b-code-alpaca)
